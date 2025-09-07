@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Journalist Dashboard{% endblock %}
+{% block content %}
+    <h2>Journalist Dashboard</h2>
+    <h3>Articles</h3>
+    {% if articles %}
+        <ul>
+        {% for article in articles %}
+            <li>{{ article.title }} - <a href="{% url 'edit_article' article.id %}">Edit</a> | <a href="{% url 'delete_article' article.id %}">Delete</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No articles. <a href="{% url 'create_article' %}">Create one</a>.</p>
+    {% endif %}
+    <h3>Newsletters</h3>
+    {% if newsletters %}
+        <ul>
+        {% for newsletter in newsletters %}
+            <li>{{ newsletter.title }} - <a href="{% url 'edit_newsletter' newsletter.id %}">Edit</a> | <a href="{% url 'delete_newsletter' newsletter.id %}">Delete</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No newsletters. <a href="{% url 'create_newsletter' %}">Create one</a>.</p>
+    {% endif %}
+{% endblock %}

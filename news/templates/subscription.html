@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Manage Subscriptions{% endblock %}
+{% block content %}
+    <h2>Manage Subscriptions</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Subscriptions</button>
+    </form>
+{% endblock %}

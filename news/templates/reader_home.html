@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Reader Home{% endblock %}
+{% block content %}
+    <h2>Welcome, Reader</h2>
+    {% if articles or newsletters %}
+        <h3>Articles</h3>
+        {% if articles %}
+            <ul>
+            {% for article in articles %}
+                <li>{{ article.title }} ({{ article.date|date:"F d, Y" }}) - {{ article.content|truncatewords:20 }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No articles available.</p>
+        {% endif %}
+        <h3>Newsletters</h3>
+        {% if newsletters %}
+            <ul>
+            {% for newsletter in newsletters %}
+                <li>{{ newsletter.title }} ({{ newsletter.date|date:"F d, Y" }}) - {{ newsletter.content|truncatewords:20 }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No newsletters available.</p>
+        {% endif %}
+    {% else %}
+        <p>No articles or newsletters available.</p>
+    {% endif %}
+{% endblock %}
