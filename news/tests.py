@@ -4,6 +4,7 @@ from .models import CustomUser, Publisher, Article
 
 
 class APITestCase(TestCase):
+    """Test case for API endpoints with user roles."""
     def setUp(self):
         self.client = APIClient()
         self.reader = CustomUser.objects.create_user(
@@ -23,6 +24,7 @@ class APITestCase(TestCase):
         self.reader.subscribed_publishers.add(self.publisher)
 
     def test_get_articles_reader(self):
+        """Tests article retrieval for a reader user."""
         self.client.force_authenticate(self.reader)
         response = self.client.get('/api/articles/')
         self.assertEqual(response.status_code, 200)
