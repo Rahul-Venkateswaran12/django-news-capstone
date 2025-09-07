@@ -7,8 +7,8 @@ import json
 
 class TwitterAPI:
     """API for interacting with Twitter (X) for posting tweets."""
-    CONSUMER_KEY = 'szp8waEc8Jaj2B1vZeOroyQXo'
-    CONSUMER_SECRET = 'u7k3b0AKP0WBhhjUP73x6YbEjCkdCVbdRHkHrQ4OGRd3P51PAX'
+    CONSUMER_KEY = 'CONS_KEY'
+    CONSUMER_SECRET = 'CONS_SECRET'
 
     def __init__(self):
         self.oauth = OAuth1Session(self.CONSUMER_KEY, client_secret=self.CONSUMER_SECRET)
