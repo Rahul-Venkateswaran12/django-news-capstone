@@ -4,6 +4,7 @@ from .models import CustomUser, Article, Newsletter, Publisher
 
 
 class RegistrationForm(UserCreationForm):
+    """Form for user registration with role selection."""
     role = forms.ChoiceField(choices=CustomUser.ROLE_CHOICES)
 
     class Meta:
@@ -11,6 +12,7 @@ class RegistrationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2', 'role']
 
     def save(self, commit=True):
+        """Saves the user and assigns role-based permissions."""
         user = super().save(commit=False)
         user.role = self.cleaned_data['role']
         if commit:
