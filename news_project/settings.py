@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(jx5qypxlea332jd=d^^svlyjm)$93xzi62i1)bdtf@##t)e(&'
+SECRET_KEY = 'secret key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'news_db',
         'USER': 'root',
-        'PASSWORD': 'K1Ea2RPR@',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
     }
